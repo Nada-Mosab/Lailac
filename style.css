@@ -1,0 +1,39 @@
+:root {
+  --main-pink: rgb(252, 231, 231);
+  --cream: rgb(237, 232, 220);
+  --olive: rgb(165, 182, 141);
+  --light-green: rgb(193, 207, 161);
+}
+
+body {
+  
+  background: linear-gradient(to right,  rgb(252, 231, 231), rgb(237, 232, 220));
+}
+
+.section-bg {
+  background-color: var(--main-pink);
+}
+
+.btn-custom {
+  background-color: var(--olive);
+  color: rgb(243, 247, 251);
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn-custom:hover{
+    background-color: rgb(114, 125, 98);
+    font-weight: bold;
+    color: aliceblue;
+}
+.navbar{
+  background-color: var(--main-pink);
+  background: transparent;
+  backdrop-filter: blur(10px);
+  
+}
+
+.btn:hover {
+    transform: translatey(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
