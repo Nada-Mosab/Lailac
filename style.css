@@ -10,6 +10,10 @@ body {
   background: linear-gradient(to right,  rgb(252, 231, 231), rgb(237, 232, 220));
 }
 
+ section {
+  padding: 110px 0;
+}
+
 .section-bg {
   background-color: var(--main-pink);
 }
@@ -19,10 +23,11 @@ body {
   color: rgb(243, 247, 251);
   border-radius: 20px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .btn-custom:hover{
-    background-color: rgb(114, 125, 98);
+    background-color: rgba(76, 175, 80, 0.4);
     font-weight: bold;
     color: aliceblue;
 }
@@ -36,4 +41,7 @@ body {
 .btn:hover {
     transform: translatey(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    transition: 0.3s;
 }
+
+
