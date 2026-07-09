@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Lailac</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #fdfbf7; }
+        .checkout-box { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="py-5">
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <div class="checkout-box">
+                <h4 class="mb-4">Shipping Information</h4>
+                <input type="text" class="form-control mb-3 p-3" placeholder="Full Name">
+                <input type="email" class="form-control mb-3 p-3" placeholder="Email Address">
+                <input type="text" class="form-control mb-3 p-3" placeholder="Shipping Address">
+                <button class="btn btn-success w-100 p-3" onclick="finishPurchase()">Complete Purchase</button>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="checkout-box">
+                <h5>Order Summary</h5>
+                <hr>
+                <div id="checkout-summary"></div>
+                <div class="d-flex justify-content-between mt-3 fw-bold fs-5">
+                    <span>Total</span>
+                    <span id="final-total"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let summary = document.getElementById('checkout-summary');
+    let total = 0;
+    cart.forEach(item => {
+        total += parseInt(item.price);
+        summary.innerHTML += `<div class="d-flex justify-content-between mb-2"><span>${item.name}</span><span>${item.price}$</span></div>`;
+    });
+    document.getElementById('final-total').innerText = total + "$";
+
+    function finishPurchase() {
+        // 1. Clear the cart after purchase
+        localStorage.removeItem('cart');
+        
+        // 2. Change the page content to a thank you message
+        document.querySelector('.container').innerHTML = `
+            <div class="text-center py-5">
+                <h1 class="text-success">Thank you for shopping with Lailac!</h1>
+                <p>Your order has been placed successfully.</p>
+                <div class="card p-4 mt-4 shadow-sm">
+                    <h5>Order Date: ${new Date().toLocaleDateString()}</h5>
+                    <p>We are preparing your natural skincare products now.</p>
+                </div>
+                <a href="index.html" class="btn btn-success mt-4 ">Back to Home</a>
+            </div>
+        `;
+    }
+
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@ body {
 }
 
 .btn-custom:hover{
-    background-color: rgba(76, 175, 80, 0.4);
+    background-color: rgba(66, 105, 68, 0.4);
     font-weight: bold;
     color: aliceblue;
 }
